@@ -1,5 +1,4 @@
-import React from "react";
-import ThemeToggle from "../context/ThemeToggle";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
     return (

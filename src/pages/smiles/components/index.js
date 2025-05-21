@@ -1,5 +1,7 @@
-import React, { useContext } from "react";
-import { SmilesContext } from "../context/SmilesContext";
+import { useContext } from "react";
+
+import { SmilesContext } from "../../../context/SmilesContext";
+
 import EmojiItem from "./EmojiItem";
 
 export default function Smiles() {

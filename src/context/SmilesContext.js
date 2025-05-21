@@ -1,12 +1,12 @@
 import  { createContext, useState, useEffect } from "react";
 import { loadVotes, saveVotes, clearVotes } from "../utils/LocalStorage";
-import {defaultSmiles} from "../data/SmileDefault";
+import { defaultSmiles } from "../data/SmileDefault";
 
-export const SmilesContext = createContext();
+export const SmilesContext = createContext(null);
 
 export function SmilesProvider({ children }) {
     const [smiles, setSmiles] = useState(() => loadVotes() || defaultSmiles);
-    const [theme, setTheme] = useState("light");
+
     useEffect(() => {
         saveVotes(smiles);
     }, [smiles]);
@@ -24,13 +24,9 @@ export function SmilesProvider({ children }) {
         clearVotes();
     };
 
-    const toggleTheme = () => {
-        setTheme((prev) => (prev === "light" ? "dark" : "light"));
-    };
-
     return (
         <SmilesContext.Provider
-            value={{ smiles, theme, onVote: handleVote, onClear: handleClear, toggleTheme }}
+            value={{ smiles, onVote: handleVote, onClear: handleClear }}
         >
             {children}
         </SmilesContext.Provider>

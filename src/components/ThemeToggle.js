@@ -1,8 +1,8 @@
-import React, { createContext} from "react";
-import {SmilesContext} from "./SmilesContext";
+import { useContext } from "react";
+import { ThemeContext } from "../context/ThemeContext";
 
 export default function ThemeToggle({children}) {
-    const { theme, toggleTheme } = createContext(SmilesContext);
+    const { theme, toggleTheme } = useContext(ThemeContext);
 
     return (
         <button onClick={toggleTheme}>

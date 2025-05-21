@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
-import { SmilesProvider, SmilesContext } from "./context/SmilesContext";
+import { useContext } from "react";
+
+import Index from "./pages/smiles/components";
 import Header from "./components/Header";
-import Smiles from "./components/Smiles";
 import Footer from "./components/Footer";
 
-function AppContent() {
-    const { theme } = useContext(SmilesContext);
+import { ThemeContext } from "./context/ThemeContext";
+
+export default function App() {
+    const { theme } = useContext(ThemeContext);
 
     const appStyle = {
         backgroundColor: theme === "light" ? "#fff" : "#222",
@@ -17,16 +19,8 @@ function AppContent() {
     return (
         <div style={appStyle}>
             <Header />
-            <Smiles />
+            <Index />
             <Footer />
         </div>
-    );
-}
-
-export default function App() {
-    return (
-        <SmilesProvider>
-            <AppContent />
-        </SmilesProvider>
     );
 }
