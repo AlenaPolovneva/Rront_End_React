@@ -1,9 +1,10 @@
-import FirstComponent from "./components/FirstComponent";
+import React from 'react';
+import TodosPage from './TodosPage';
+
 function App() {
-  return (
-      <div>
-   <FirstComponent />
-      </div>
-  );
+    return (
+            <TodosPage />
+    );
 }
+
 export default App;
